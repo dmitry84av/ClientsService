@@ -10,5 +10,6 @@ public class ClientsServiceApplication {
 
 		SpringApplication.run(ClientsServiceApplication.class, args);
 		System.out.println("START");
+		System.out.println("DEV");
 	}
 }
