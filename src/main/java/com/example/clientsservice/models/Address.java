@@ -19,13 +19,25 @@ public class Address {
     private  Integer id;
     @Column(nullable = false,length = 100)
     private  String address;
+    @Column(nullable = false)
+    private  String region;
+    @Column(nullable = false)
+    private  String district;
+    @Column(nullable = false)
+    private  String city;
+    @Column(nullable = false)
+    private  String street;
+    @Column(nullable = false)
+    private  String house;
+
+
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Address address1 = (Address) o;
-        return Objects.equals(id, address1.id) && Objects.equals(address, address1.address);
+        return Objects.equals(id, address1.id) && Objects.equals(region, address1.region) && Objects.equals(district,address1.district) && Objects.equals(city,address1.city) && Objects.equals(street,address1.street)&& Objects.equals(house,address1.house);
     }
 
     @Override
@@ -33,9 +45,8 @@ public class Address {
         return Objects.hash(id, address);
     }
 
-    @OneToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "address_id", nullable = false,
-            foreignKey = @ForeignKey(name = "FK_address_clients"))
+    @OneToOne(mappedBy = "address",fetch = FetchType.LAZY)
+    @JoinColumn(foreignKey = @ForeignKey(name = "FK_address_clients"))
     private Client client;
 
     @Override

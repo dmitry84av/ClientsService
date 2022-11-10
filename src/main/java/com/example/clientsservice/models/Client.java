@@ -15,6 +15,8 @@ import java.util.Set;
 @Entity
 @Table(name = "clients")
 public class Client {
+
+
     public enum Gender{
         NONE, MALE,FEMALE
     }
@@ -31,6 +33,11 @@ public class Client {
     private Gender gender;
     @Column(length = 50, nullable = false, unique = true)
     private String email;
+    @OneToOne(orphanRemoval = true)
+    @JoinTable(name = "clients_address",
+            joinColumns = @JoinColumn(name = "client_id"),
+            inverseJoinColumns = @JoinColumn(name = "address_id"))
+    private Address address;
     @OneToMany(mappedBy = "client", fetch = FetchType.LAZY)
     private Set<Phone> phones;
     @ManyToMany(fetch = FetchType.LAZY)
