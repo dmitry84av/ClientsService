@@ -52,8 +52,19 @@ public class ClientRepositoryTest {
         List<Client> saved = clientRepository.findAll();
         assertIterableEquals(original,saved);
     }
+
     @Test
     @Order(4)
+    public void findAllBySurnameNamePatronymic() {
+        List<Client> actual =
+        clientRepository.findAllBySurnameAndNameAndPatronymic(
+                a.getSurname(),a.getName(),a.getPatronymic()
+        );
+        System.out.println(actual);
+        assertEquals(a, actual.get(0));
+    }
+    @Test
+    @Order(5)
     void deleteAll() {
         clientRepository.deleteAll();
         assertEquals(0, clientRepository.findAll().size());
