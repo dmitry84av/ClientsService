@@ -25,7 +25,7 @@ public class ClientsServiceApplication {
 		this.clientRepository = clientRepository;
 	}
 
-	@EventListener(ApplicationReadyEvent.class)
+	//@EventListener(ApplicationReadyEvent.class)
 	public void applicationReady(){
 		Client a = new Client(0,"a","a","a",MALE,"a@test.com",
 				null,null,null);
