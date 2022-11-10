@@ -27,7 +27,7 @@ public class ClientPhoneServiceDbTest {
     static Client a = new Client(0,"a","a","a",FEMALE,"a@test.com",
             null,null,null);
     static Phone p1 = new Phone(0,"111",null);
-    static Phone p2 = new Phone(0,"222",null);
+    static Phone p2 = new Phone(0,"2222",null);
     @Test
     @Order(1)
     void save() {
