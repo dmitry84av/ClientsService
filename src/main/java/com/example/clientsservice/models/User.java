@@ -13,8 +13,7 @@ import javax.persistence.*;
 @Entity
 @Table(name = "users")
 public class User {
-    public User(int i, String erertr7876, Object o) {
-    }
+
 
     public void setClient(Client a) {
     }

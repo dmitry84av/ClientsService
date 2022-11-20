@@ -2,6 +2,7 @@ package com.example.clientsservice.models;
 import lombok.*;
 
 import javax.persistence.*;
+import java.util.List;
 import java.util.Objects;
 
 @Getter
@@ -30,10 +31,6 @@ public class Address {
     @Column(nullable = false)
     private  String house;
 
-    public Address(int i, String erterttrr76786, Object o) {
-    }
-
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -57,5 +54,8 @@ public class Address {
                 "id=" + id +
                 ", address='" + address + '\'' +
                 '}';
+    }
+
+    public void addAll(List<Account> addressList) {
     }
 }

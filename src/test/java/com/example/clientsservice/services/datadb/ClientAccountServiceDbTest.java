@@ -11,8 +11,6 @@ import org.junit.jupiter.api.TestMethodOrder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
-import javax.transaction.Transactional;
-
 
 import java.util.HashSet;
 import java.util.List;
@@ -40,15 +38,10 @@ public class ClientAccountServiceDbTest {
     void save() {
         List<Client> clientList = clientService.saveAll(List.of(a,b));
         List<Account> accountList = accountService.saveAll(List.of(a1,a2));
+        //
+        clientList.forEach(client -> client.getAccounts().addAll(accountList));
+        //
+        clientService.saveAll(clientList);
+        accountService.saveAll(accountList);
     }
-
-    @Test
-    @Order(2)
-    @Transactional
-    void findByClientId(){
-        Client actual = clientService.findById(a.getId());
-        System.out.println(actual);
-        System.out.println(actual.getAccounts());
-    }
-
 }
