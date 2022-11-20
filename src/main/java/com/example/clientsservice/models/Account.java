@@ -26,6 +26,9 @@ public class Account {
     @ManyToMany(fetch = FetchType.LAZY)
     private Set<Client> clients;
 
+    public Account(int i, String erertr, Object clients) {
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -45,5 +48,8 @@ public class Account {
                 "id=" + id +
                 ", amount=" + amount +
                 '}';
+    }
+
+    public void setClient(Client a) {
     }
 }

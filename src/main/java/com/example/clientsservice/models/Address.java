@@ -30,6 +30,8 @@ public class Address {
     @Column(nullable = false)
     private  String house;
 
+    public Address(int i, String erterttrr76786, Object o) {
+    }
 
 
     @Override

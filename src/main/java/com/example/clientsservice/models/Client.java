@@ -17,6 +17,10 @@ import java.util.Set;
 public class Client {
 
 
+    public boolean getUsers() {
+        return false;
+    }
+
     public enum Gender{
         NONE, MALE,FEMALE
     }
