@@ -2,6 +2,7 @@ package com.example.clientsservice.models;
 import lombok.*;
 
 import javax.persistence.*;
+import java.util.HashSet;
 
 @Getter
 @Setter
@@ -14,6 +15,9 @@ import javax.persistence.*;
 @Table(name = "users")
 public class User {
 
+
+    public <E> User(long l, int i, HashSet<E> es) {
+    }
 
     public void setClient(Client a) {
     }

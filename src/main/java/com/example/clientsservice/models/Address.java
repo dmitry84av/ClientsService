@@ -2,6 +2,7 @@ package com.example.clientsservice.models;
 import lombok.*;
 
 import javax.persistence.*;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Objects;
 
@@ -31,6 +32,9 @@ public class Address {
     @Column(nullable = false)
     private  String house;
 
+    public <E> Address(long l, int i, HashSet<E> es) {
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -56,6 +60,6 @@ public class Address {
                 '}';
     }
 
-    public void addAll(List<Account> addressList) {
+    public void addAll(List<Address> addressList) {
     }
 }

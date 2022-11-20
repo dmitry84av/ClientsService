@@ -10,5 +10,5 @@ public interface AddressService {
         return null;
     }
 
-    List<Account> saveAll(List<Account> addresses);
+    List<Address> saveAll(List<Address> address);
 }
