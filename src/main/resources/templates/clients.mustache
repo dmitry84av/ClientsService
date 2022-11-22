@@ -16,12 +16,18 @@
             <th>Email</th>
         </tr>
         {{#clients}}
-            <tr>{{id}}</tr>
-            <tr>{{surname}}</tr>
-            <tr>{{name}}</tr>
-            <tr>{{patronymic}}</tr>
-            <tr>{{gender}}</tr>
-            <tr>{{email}}</tr>
+            <td>{{id}}</td>
+            <td>{{surname}}</td>
+            <td>{{name}}</td>
+            <td>{{patronymic}}</td>
+            <td>{{gender}}</td>
+            <td>{{email}}</td>
+            <td>
+                <form action="thisClientForm" method="post">
+                    <input type="hidden" name="id" value="{{id}}">
+                    <input type="submit" value="&#8942;">
+                </form>
+            </td>
             </tr>
         {{/clients}}
     </table>
