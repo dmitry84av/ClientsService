@@ -2,6 +2,7 @@ package com.example.clientsservice.controllers;
 
 import com.example.clientsservice.models.Address;
 import com.example.clientsservice.models.Client;
+import com.example.clientsservice.srvices.data.AddressService;
 import com.example.clientsservice.srvices.data.ClientService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -17,12 +18,17 @@ import org.springframework.web.servlet.ModelAndView;
 public class ClientUpdateController {
     @Autowired
     private ClientService clientService;
+    @Autowired
+    private AddressService addressService;
 
     @GetMapping("clientUpdate")
     public String load(@RequestParam("id") Integer id, Model model) {
         Client client = clientService.findById(id);
+        if (client.getAddress() == null)
+            client.setAddress(new Address());
         model.addAttribute("client",client);
         model.addAttribute("genders",Client.Gender.values());
+
         return "clientUpdate";
     }
     @PostMapping("updateClientForm")
@@ -36,10 +42,15 @@ public class ClientUpdateController {
     @PostMapping("updateClientAddressForm")
     public ModelAndView updateClientAddressForm(
         @ModelAttribute Client client,
-        @ModelAttribute Address address
+        @ModelAttribute Address address,
+        @RequestParam(value = "idAddress", required = false) Integer idAddress
         )     {
+            address.setId(idAddress);
             System.err.println(client);
             System.err.println(address);
+            address= AddressService.save(address);
+            client.setAddress(address);
+            clientService.save(client);
         return new ModelAndView("redirect:clientUpdate",
                 new ModelMap("id",client.getId()));
     }
