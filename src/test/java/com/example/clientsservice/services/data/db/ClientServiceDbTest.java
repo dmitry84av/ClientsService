@@ -1,4 +1,4 @@
-package com.example.clientsservice.services.datadb;
+package com.example.clientsservice.services.data.db;
 
 import com.example.clientsservice.models.Client;
 import com.example.clientsservice.srvices.data.ClientService;

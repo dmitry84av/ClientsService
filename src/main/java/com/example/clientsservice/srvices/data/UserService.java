@@ -5,9 +5,10 @@ import com.example.clientsservice.models.User;
 import java.util.List;
 
 public interface UserService {
-    static User save(User user) {
-        return null;
-    }
 
-    List<User> saveAll(List<User> users);
+    List<User> findAll();
+
+    User save(User user);
+
+    List<User> saveAll(List<User> ad1);
 }

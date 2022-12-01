@@ -37,4 +37,10 @@ public class Address {
     @OneToOne(mappedBy = "address",fetch = FetchType.LAZY)
     @JoinColumn(foreignKey = @ForeignKey(name = "FK_address_clients"))
     private Client client;
+
+    public <E> Address(long l, int i, HashSet<E> es) {
+    }
+
+    public void addAll(List<Address> addressList) {
+    }
 }
