@@ -33,11 +33,11 @@ public class Client {
     private String name;
     @Column(length = 50, nullable = false)
     private String patronymic;
-    @Column(nullable = false, columnDefinition = "int default 0")
+    @Column(nullable = false, columnDefinition = "int(1) default 0")
     private Gender gender;
     @Column(length = 50, nullable = false, unique = true)
     private String email;
-    @OneToOne(orphanRemoval = true)
+    @OneToOne(fetch = FetchType.LAZY)
     @JoinTable(name = "clients_address",
             joinColumns = @JoinColumn(name = "client_id"),
             inverseJoinColumns = @JoinColumn(name = "address_id"))
@@ -69,13 +69,9 @@ public class Client {
 
     @Override
     public String toString() {
-        return "Client{" +
-                "id=" + id +
-                ", surname='" + surname + '\'' +
-                ", name='" + name + '\'' +
-                ", patronymic='" + patronymic + '\'' +
-                ", gender=" + gender +
-                ", email='" + email + '\'' +
-                '}';
+        return String.format(
+                "Client{id=%s, surname=%s, name=%s, patronymic=%s, gender=%s, email=%s}",
+                id, surname, name, patronymic, gender, email
+        );
     }
 }

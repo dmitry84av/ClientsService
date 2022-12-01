@@ -18,10 +18,11 @@ public class ClientsServiceApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(ClientsServiceApplication.class, args);
 	}
-	@Autowired
-	private ClientRepository clientRepository;
+
+	private final ClientRepository clientRepository;
 
 	public ClientsServiceApplication(ClientRepository clientRepository) {
+
 		this.clientRepository = clientRepository;
 	}
 
