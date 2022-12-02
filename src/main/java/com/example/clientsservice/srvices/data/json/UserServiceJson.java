@@ -20,8 +20,8 @@ public class UserServiceJson implements UserService {
     @Override
     public List<User> findAll() {
         try {
-            List<User> list = new  Gson().fromJson(new JsonReader(new FileReader(usersFile)),
-                    new TypeToken<List<User>>() {
+            List<User> list = new  Gson().fromJson(new FileReader(usersFile),
+                    new TypeToken<>() {
                     });
             if (list != null)
                 return list;
@@ -34,8 +34,8 @@ public class UserServiceJson implements UserService {
     public List<User> saveAll(List<User> users) {
         try {
             FileWriter writer = new FileWriter(usersFile);
-            new Gson().toJson(new JsonWriter(writer));
-            writer.close();
+            new Gson().toJson(users, writer);
+            writer.flush();
         }
         catch (Exception ignored) {
         }

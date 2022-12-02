@@ -19,9 +19,9 @@ public class UserServiceJsonTest {
     @Test
     @Order(1)
     void save(){
-        System.err.println(userService.findAll());
         User actual = userService.save(user);
         user.setId(actual.getId());
         Assertions.assertEquals(user, actual);
+        System.err.println(userService.findAll());
     }
 }
