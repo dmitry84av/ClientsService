@@ -1,4 +1,4 @@
-package com.example.clientsservice.services.data.db;
+/*package com.example.clientsservice.services.data.db;
 
 
 import com.example.clientsservice.models.Client;
@@ -48,4 +48,4 @@ public class ClientUserServiceDbTest {
         clientService.saveAll(clientList);
         userService.saveAll(userList);
     }
-}
+}*/

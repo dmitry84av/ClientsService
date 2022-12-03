@@ -6,10 +6,17 @@ import com.example.clientsservice.srvices.data.PhoneService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class PhoneServiceDb implements PhoneService {
     @Autowired
     private PhoneRepository phoneRepository;
+
+    @Override
+    public List<Phone> findAll() {
+        return null;
+    }
 
     @Override
     public Phone save(Phone phone) {

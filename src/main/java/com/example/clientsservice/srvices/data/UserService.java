@@ -10,5 +10,5 @@ public interface UserService {
 
     User save(User user);
 
-    List<User> saveAll(List<User> ad1);
+    List<User> saveAll(List<User> users);
 }

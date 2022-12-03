@@ -17,6 +17,9 @@ import java.util.Set;
 public class Client {
 
 
+    public Client(int i, String dmitry, String tverdohleb, String anatolievich, Gender male, String gjgyrytr) {
+    }
+
     public boolean getUsers() {
         return false;
     }

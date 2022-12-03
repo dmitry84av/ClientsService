@@ -15,13 +15,6 @@ import java.util.HashSet;
 @Table(name = "users")
 public class User {
 
-
-    public <E> User(long l, int i, HashSet<E> es) {
-    }
-
-    public void setClient(Client a) {
-    }
-
     public enum Role{
         USER,ADMIN
     }
@@ -35,7 +28,7 @@ public class User {
     private String username;
     @Column(nullable = false)
     private String password;
-    @Column(nullable = false)
+    @Column(nullable = true)
     private Role role;
     @Column(nullable = false, columnDefinition = "int(1) default 0")
     private Status status;
