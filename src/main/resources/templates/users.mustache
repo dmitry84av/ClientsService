@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Clients</title>
+</head>
+<body>
+<div id="addUsers">
+    <form action="userAddForm" method="post">
+        <input type="text" name="username" placeholder="Username">
+        <input type="text" name="password" placeholder="Password">
+        <input type="text" name="role" placeholder="Role">
+        <input type="text" name="status" placeholder="Status">
+        <input type="submit" value="SAVE" id="submitButton">
+    </form>
+</div>
+<div id="usersTable">
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Username</th>
+            <th>Password</th>
+            <th>Role</th>
+            <th>Status</th>
+        </tr>
+        {{#users}}
+            <tr>
+                <td>{{id}}</td>
+               <td>{{username}}</td>
+               <td>{{password}}</td>
+               <td>{{role}}</td>
+               <td>{{status}}</td>
+            </tr>
+        {{/users}}
+    </table>
+</div>
+</body>
+</html>
