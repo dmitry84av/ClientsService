@@ -2,6 +2,7 @@ package com.example.clientsservice.models;
 import lombok.*;
 
 import javax.persistence.*;
+import java.util.HashSet;
 
 @Getter
 @Setter
@@ -13,6 +14,7 @@ import javax.persistence.*;
 @Entity
 @Table(name = "users")
 public class User {
+
     public enum Role{
         USER,ADMIN
     }
@@ -26,9 +28,9 @@ public class User {
     private String username;
     @Column(nullable = false)
     private String password;
-    @Column(nullable = false)
+    @Column(nullable = true)
     private Role role;
-    @Column(nullable = false)
+    @Column(nullable = false, columnDefinition = "int(1) default 0")
     private Status status;
 
 

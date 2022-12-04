@@ -1,4 +1,4 @@
-package com.example.clientsservice.services.data;
+package com.example.clientsservice.services.data.db;
 
 import com.example.clientsservice.models.Client;
 import com.example.clientsservice.models.Phone;
@@ -9,25 +9,26 @@ import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestMethodOrder;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import javax.transaction.Transactional;
-import java.util.List;
-import java.util.Set;
 
 import static com.example.clientsservice.models.Client.Gender.FEMALE;
 
 @SpringBootTest
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 public class ClientPhoneServiceDbTest {
+    @Qualifier("clientServiceDb")
     @Autowired
     private ClientService clientService;
+    @Qualifier("phoneServiceDb")
     @Autowired
     private PhoneService phoneService;
     static Client a = new Client(0,"a","a","a",FEMALE,"a@test.com",
             null,null,null);
-    static Phone p1 = new Phone(0,"111",null);
-    static Phone p2 = new Phone(0,"2222",null);
+    static Phone p1 = new Phone(1,"hgjhj");
+    static Phone p2 = new Phone(2,"222");
     @Test
     @Order(1)
     void save() {
