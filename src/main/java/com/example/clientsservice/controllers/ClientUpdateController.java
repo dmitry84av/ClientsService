@@ -8,9 +8,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import java.util.HashMap;
-import java.util.Map;
-
 @Controller
 public class ClientUpdateController {
     @Autowired
@@ -18,7 +15,7 @@ public class ClientUpdateController {
     @GetMapping ("clientUpdate")
     public String load(@RequestParam("clientId") Integer id, Model model) {
         Client client = clientService.findById(id);
-        model.addAttribute("client",client);
+        model.addAttribute("client", client);
         return "clientUpdate";
     }
 }
