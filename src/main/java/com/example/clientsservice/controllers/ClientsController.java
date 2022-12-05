@@ -20,6 +20,7 @@ public class ClientsController {
 
     @GetMapping("/")
     public String load() {
+
         return "redirect:clients";
     }
 
@@ -29,9 +30,24 @@ public class ClientsController {
         model.addAttribute("clients",list);
         return "clients";
     }
+
+    @PostMapping("clientAddForm")
+    public String clientAddForm(
+            @RequestParam("surname") String surname,
+            @RequestParam("name") String name,
+            @RequestParam("patronymic") String patronymic,
+            @RequestParam("gender") Client.Gender gender,
+            @RequestParam("email") String email
+    ) {
+        Client client = new Client(0, surname, name, patronymic, gender, email,
+                null, null,null);
+        clientService.save(client);
+        return "redirect";
+    }
+
     @PostMapping("thisClientForm")
     public ModelAndView thisClientForm(@RequestParam("id") Integer id) {
-        return new ModelAndView("clientUpdate", new ModelMap("clientId",id));
+        return new ModelAndView("clientUpdate", new ModelMap("clientId", id));
 
     }
 }
