@@ -16,13 +16,9 @@ public class ClientUpdateController {
     @Autowired
     private ClientService clientService;
     @GetMapping ("clientUpdate")
-    public String load(@RequestParam("clientId")Integer id, Model model) {
+    public String load(@RequestParam("clientId") Integer id, Model model) {
         Client client = clientService.findById(id);
         model.addAttribute("client",client);
-       for (Gender value : Client.Gender.values()) {
-           genders.put(value.name(),value == client.getGender() ? "selected" : "");
-       }
-       model.addAttribute("genders",genders.entrySet());
         return "clientUpdate";
     }
 }

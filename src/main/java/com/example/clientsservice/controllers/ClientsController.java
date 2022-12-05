@@ -42,12 +42,11 @@ public class ClientsController {
         Client client = new Client(0, surname, name, patronymic, gender, email,
                 null, null,null);
         clientService.save(client);
-        return "redirect";
+        return "redirect:";
     }
 
     @PostMapping("thisClientForm")
     public ModelAndView thisClientForm(@RequestParam("id") Integer id) {
         return new ModelAndView("clientUpdate", new ModelMap("clientId", id));
-
     }
 }
