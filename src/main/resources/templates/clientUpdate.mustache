@@ -6,25 +6,21 @@
 </head>
 <body>
 <div class="clientForm">
-        {{#client}}
-        <form action="clientUpdeateForm" method="post">
+    {{#client}}
+        <form action="clientUpdateForm" method="post">
             <input type="hidden" name="id" value="{{id}}">
             <input type="text"> name="surname" placeholder="Surname" value="{{surname}}">
             <input type="text"> name="name" placeholder="Name" value="{{name}}">
             <input type="text"> name="patronymic" placeholder="Patronymic" value="{{patronymic}}">
             <input type="email"> name="email" placeholder="Email" value="{{email}}">
-        {{/client}}
             <select name="gender" in="gender">
-        {{#gender}}
-                <option value="NONE">NONE</option>
-                <option value="MALE">MALE</option>
-                <option value="FEMALE">FEMALE</option>
+                <option value="NONE" {{NONE}}>NONE</option>
+                <option value="MALE" {{MALE}}>MALE</option>
+                <option value="FEMALE" {{FEMALE}}>FEMALE</option>,
             </select>
-        {{/gender}}
-    <input type="submit" value="SAME" id="submitButton">
+         <input type="submit" value="SAME" id="submitButton">
         </form>
-
+    {{/client}}
 </div>
-
 </body>
 </html>
