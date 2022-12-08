@@ -38,9 +38,9 @@ public class PhoneServiceJson implements PhoneService {
 
     private Phone saveAll(Phone phone) {
         try {
-            FileWriter writer = new FileWriter(phoneFiles);
-            new Gson().toJson(phone.writer);
-            writer.flush();
+            //FileWriter writer = new FileWriter(phoneFiles);
+            //new Gson().toJson(phone.writer);
+            //writer.flush();
         }
         catch(Exception ignored) {
         }

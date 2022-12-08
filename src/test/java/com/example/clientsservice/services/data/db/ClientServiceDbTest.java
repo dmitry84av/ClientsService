@@ -7,6 +7,7 @@ import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestMethodOrder;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import java.util.List;
@@ -19,6 +20,7 @@ import static org.junit.jupiter.api.Assertions.assertIterableEquals;
 @SpringBootTest
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 public class ClientServiceDbTest {
+    @Qualifier("clientServiceDb")
     @Autowired
     ClientService clientService;
     static Client a = new Client(0,"a","a","a",FEMALE,"a@test.com",

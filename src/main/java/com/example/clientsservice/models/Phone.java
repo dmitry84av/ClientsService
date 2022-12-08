@@ -15,14 +15,15 @@ import java.util.Objects;
 @Entity
 @Table(name = "phones")
 public class Phone {
-    public Object writer;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private  Integer id;
     @Column(nullable = false,length = 20)
     private  String phone;
 
-    public Phone(int i, String hgjhj) {
+    public Phone(Integer id, String phone) {
+        this.id = id;
+        this.phone = phone;
     }
 
     @Override

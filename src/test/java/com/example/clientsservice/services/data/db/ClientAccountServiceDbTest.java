@@ -9,6 +9,7 @@ import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestMethodOrder;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.test.context.SpringBootTest;
 
 
@@ -21,6 +22,7 @@ import static com.example.clientsservice.models.Client.Gender.MALE;
 @SpringBootTest
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 public class ClientAccountServiceDbTest {
+    @Qualifier("clientServiceDb")
     @Autowired
     private ClientService clientService;
 

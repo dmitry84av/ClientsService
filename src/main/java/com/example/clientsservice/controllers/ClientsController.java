@@ -18,11 +18,6 @@ public class ClientsController {
     @Autowired
     private ClientService clientService;
 
-        @GetMapping("/")
-        public String load() {
-            return "redirect:clients";
-        }
-
         @GetMapping("/clients")
         public String loadClients(Model model) {
             List<Client> list = clientService.findAll();
