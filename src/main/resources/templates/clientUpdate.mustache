@@ -9,10 +9,10 @@
     {{#client}}
         <form action="clientUpdateForm" method="post">
             <input type="hidden" name="id" value="{{id}}">
-            <input type="text"> name="surname" placeholder="Surname" value="{{surname}}">
-            <input type="text"> name="name" placeholder="Name" value="{{name}}">
-            <input type="text"> name="patronymic" placeholder="Patronymic" value="{{patronymic}}">
-            <input type="email"> name="email" placeholder="Email" value="{{email}}">
+            <input type="text" name="surname" placeholder="Surname" value="{{surname}}">
+            <input type="text" name="name" placeholder="Name" value="{{name}}">
+            <input type="text" name="patronymic" placeholder="Patronymic" value="{{patronymic}}">
+            <input type="email" name="email" placeholder="Email" value="{{email}}">
     {{/client}}
             <select name="gender" in="gender">
                 <option value="NONE" {{NONE}}>NONE</option>
