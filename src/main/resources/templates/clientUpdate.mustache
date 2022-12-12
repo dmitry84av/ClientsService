@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Client Update</title>
+</head>
+<body>
+<div class="clientForm">
+    {{#clients}}
+      <form action="clientUpdateForm" method="post">
+        <input type="hidden" name="id" value="{{id}}">
+        <input type="text" name="surname" placeholder="Surname" value="{{surname}}">
+        <input type="text" name="name" placeholder="Name" value="{{name}}">
+        <input type="text" name="patronymic" placeholder="Patronymic" value="{{patronymic}}">
+        <input type="email" name="email" placeholder="Email" value="{{email}}">
+        <select name="gender" id="gender">
+          {{#gender}}
+            <option value="{{key}}" {{value}}>{{key}}</option>
+          {{/gender}}
+        </select>
+          <input type="submit" value="SAVE" id="submitButton">
+    {{/clients}}
+</form>
+</div>
+</body>
+</html>
