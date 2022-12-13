@@ -42,6 +42,6 @@ public class UsersController {
 
     @PostMapping("thisUserForm")
     public ModelAndView thisUserForm(@RequestParam("id") Integer id) {
-        return new ModelAndView("redirect:userUpdate", new ModelMap("userid",id));
+        return new ModelAndView("redirect:userUpdate", new ModelMap("userId", id));
     }
 }

@@ -16,9 +16,15 @@ public class UserUpdateController {
     private UserService userService;
 
     @GetMapping("userUpdate")
-    public String load(@RequestParam("userId") Integer id, Model model) {
+    public String load(@RequestParam("userId") Integer id , Model model) {
         User user = userService.findById(id);
         model.addAttribute("user", user);
+
+        Object role = new Object(){
+            String USER = "";
+            String ADMON = "selected";
+        };
+        model.addAttribute("role", role);
         return "userUpdate";
     }
 }

@@ -30,6 +30,5 @@ public class UserServiceDb implements UserService {
 
     @Override
     public User findById(Integer id) {
-        return null;
-    }
+        return null;}
 }
