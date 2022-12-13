@@ -7,9 +7,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.ModelAndView;
 
 import java.util.List;
 
@@ -36,5 +38,10 @@ public class UsersController {
         User user = new User(0, username, password, role, status);
         userService.save(user);
         return "redirect:";
+    }
+
+    @PostMapping("thisUserForm")
+    public ModelAndView thisUserForm(@RequestParam("id") Integer id) {
+        return new ModelAndView("redirect:userUpdate", new ModelMap("userid",id));
     }
 }

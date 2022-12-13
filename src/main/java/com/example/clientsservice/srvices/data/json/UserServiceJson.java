@@ -41,6 +41,12 @@ public class UserServiceJson implements UserService {
         }
         return users;
     }
+
+    @Override
+    public User findById(Integer id) {
+        return null;
+    }
+
     @Override
     public User save(User user) {
         List<User> list = findAll();

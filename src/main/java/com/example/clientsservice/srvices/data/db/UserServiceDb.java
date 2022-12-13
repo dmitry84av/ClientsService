@@ -27,4 +27,9 @@ public class UserServiceDb implements UserService {
     public List<User> saveAll(List<User> users) {
         return userRepository.saveAll(users);
     }
+
+    @Override
+    public User findById(Integer id) {
+        return null;
+    }
 }
