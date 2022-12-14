@@ -27,12 +27,12 @@ public class UserUpdateController {
         for (User.Role value: User.Role.values()) {
             roles.put(value, value == user.getRole() ? "selected" : "");
         }
-        model.addAttribute("roles", roles);
+        model.addAttribute("roles", roles.entrySet());
         Map<User.Status, String> status = new HashMap<>();
         for (User.Status value: User.Status.values()) {
             status.put(value, value == user.getStatus() ? "selected" : "");
         }
-        model.addAttribute("status", status);
+        model.addAttribute("status", status.entrySet());
 
         return "userUpdate";
     }
