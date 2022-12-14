@@ -10,9 +10,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 @Controller
@@ -25,12 +23,12 @@ public class UserUpdateController {
     public String load(@RequestParam("userId") Integer id , Model model) {
         User user = userService.findById(id);
         model.addAttribute("user", user);
-        Map<User.Role,String> roles = new HashMap<>();
+        Map<User.Role, String> roles = new HashMap<>();
         for (User.Role value: User.Role.values()) {
             roles.put(value, value == user.getRole() ? "selected" : "");
         }
         model.addAttribute("roles", roles);
-        Map<User.Status,String> status = new HashMap<>();
+        Map<User.Status, String> status = new HashMap<>();
         for (User.Status value: User.Status.values()) {
             status.put(value, value == user.getStatus() ? "selected" : "");
         }
