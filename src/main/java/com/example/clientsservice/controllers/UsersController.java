@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 
 import java.util.List;
 
@@ -18,6 +20,13 @@ public class UsersController {
     public String load(Model model) {
         List<User> list = userService.findAll();
         model.addAttribute("users", list);
+        model.addAttribute("role", User.Role.values());
+        model.addAttribute("status", User.Status.values());
         return "users";
+    }
+    @PostMapping("addUserForm")
+    public String addUserForm(@ModelAttribute User user) {
+        System.err.println(user);
+        return "redirect:user";
     }
 }
