@@ -26,7 +26,7 @@ public class UsersController {
     }
     @PostMapping("addUserForm")
     public String addUserForm(@ModelAttribute User user) {
-        System.err.println(user);
-        return "redirect:user";
+        userService.save(user);
+        return "redirect:users";
     }
 }
