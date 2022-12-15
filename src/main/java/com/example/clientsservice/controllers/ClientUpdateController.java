@@ -18,15 +18,11 @@ import org.springframework.web.servlet.ModelAndView;
 public class ClientUpdateController {
     @Autowired
     private ClientService clientService;
-    @Autowired
-    private AddressService addressService;
 
     @GetMapping("clientUpdate")
     public String load(@RequestParam("id") Integer id, Model model) {
         Client client = clientService.findById(id);
-        if (client.getAddress() == null)
-            client.setAddress(new Address());
-        model.addAttribute("client",client);
+        model.addAttribute("client", client);
         model.addAttribute("genders",Client.Gender.values());
         return "clientUpdate";
     }
@@ -34,22 +30,6 @@ public class ClientUpdateController {
     public ModelAndView method(@ModelAttribute Client client){
         System.err.println(client);
         clientService.save(client);
-        return new ModelAndView("redirect:clientUpdate",
-                new ModelMap("id",client.getId()));
-
-    }
-    @PostMapping("updateClientAddressForm")
-    public ModelAndView updateClientAddressForm(
-        @ModelAttribute Client client,
-        @ModelAttribute Address address,
-        @RequestParam(value = "idAddress", required = false) Integer idAddress
-        )     {
-            address.setId(idAddress);
-            System.err.println(client);
-            System.err.println(address);
-            address= AddressService.save(address);
-            client.setAddress(address);
-            clientService.save(client);
         return new ModelAndView("redirect:clientUpdate",
                 new ModelMap("id",client.getId()));
     }
