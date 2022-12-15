@@ -33,6 +33,12 @@
         <td th:utext="${user.password}"></td>
         <td th:utext="${user.role}"></td>
         <td th:utext="${user.status}"></td>
+        <td>
+            <form th:action="@{/openUserForm}" method="post">
+                <input type="hidden" name="id" th:value="${user.id}">
+                <input type="submit" value="&#8942;">
+            </form>
+        </td>
     </tr>
   </table>
 </div>
