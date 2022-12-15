@@ -25,4 +25,8 @@ public class UserServiceDb implements UserService {
     @Override
     public List<User> findAll() { return userRepository.findAll();
     }
+
+    @Override
+    public User findById(Integer id) { return userRepository.findById(id).get();
+    }
 }
