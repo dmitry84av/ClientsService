@@ -10,4 +10,6 @@ public interface UserService {
     }
 
     List<User> saveAll(List<User> users);
+
+    List<User> findAll();
 }

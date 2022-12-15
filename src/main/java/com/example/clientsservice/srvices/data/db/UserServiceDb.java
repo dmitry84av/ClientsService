@@ -17,4 +17,8 @@ public class UserServiceDb implements UserService {
     public List<User> saveAll(List<User> users) {
         return userRepository.saveAll(users);
     }
+
+    @Override
+    public List<User> findAll() { return userRepository.findAll();
+    }
 }
