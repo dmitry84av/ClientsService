@@ -16,11 +16,6 @@ import java.util.Set;
 @Table(name = "clients")
 public class Client {
 
-
-    public boolean getUsers() {
-        return false;
-    }
-
     public enum Gender{
         NONE, MALE,FEMALE
     }

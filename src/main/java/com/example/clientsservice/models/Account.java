@@ -46,7 +46,4 @@ public class Account {
                 ", amount=" + amount +
                 '}';
     }
-
-    public void setClient(Client a) {
-    }
 }

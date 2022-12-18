@@ -15,13 +15,6 @@ import java.util.HashSet;
 @Table(name = "users")
 public class User {
 
-
-    public <E> User(long l, int i, HashSet<E> es) {
-    }
-
-    public void setClient(Client a) {
-    }
-
     public enum Role{
         USER,ADMIN
     }

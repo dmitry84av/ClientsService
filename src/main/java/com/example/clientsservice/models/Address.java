@@ -32,9 +32,6 @@ public class Address {
     @Column(nullable = false)
     private  String house;
 
-    public <E> Address(long l, int i, HashSet<E> es) {
-    }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

@@ -35,8 +35,8 @@ public class ClientUserServiceDbTest {
             null,null,null);
     static Client b = new Client(0,"b","b","b",MALE,"b@test.com",
             null,null,null);
-    static User ad1 = new User(0L,10,new HashSet<>());
-    static User ad2 = new User(0L,20,new HashSet<>());
+    static User ad1 = new User(10,"dsdthfdh","qwedsf",null,null);
+    static User ad2 = new User(20,"tywerwr","ghjiui",null,null);
     @Test
     @Order(1)
     void save() {
