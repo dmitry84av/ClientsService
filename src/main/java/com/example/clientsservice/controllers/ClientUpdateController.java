@@ -1,9 +1,8 @@
 package com.example.clientsservice.controllers;
 
-import com.example.clientsservice.models.Address;
+
 import com.example.clientsservice.models.Client;
 import com.example.clientsservice.models.Phone;
-import com.example.clientsservice.srvices.data.AddressService;
 import com.example.clientsservice.srvices.data.ClientService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;

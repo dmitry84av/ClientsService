@@ -31,8 +31,8 @@ public class ClientAccountServiceDbTest {
             null,null,null);
     static Client b = new Client(0,"b","b","b",MALE,"b@test.com",
             null,null,null);
-    static Account a1 = new Account(0L,10,new HashSet<>());
-    static Account a2 = new Account(0L,20,new HashSet<>());
+    static Account a1 = new Account(0,10,new HashSet<>());
+    static Account a2 = new Account(1,20,new HashSet<>());
     @Test
     @Order(1)
     void save() {

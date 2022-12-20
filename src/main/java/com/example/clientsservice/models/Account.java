@@ -1,4 +1,5 @@
 package com.example.clientsservice.models;
+import java.math.BigInteger;
 import java.util.List;
 import java.util.Objects;
 import java.util.Set;
@@ -20,7 +21,7 @@ import javax.persistence.*;
 public class Account {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private BigInteger id;
     @Column(columnDefinition = "int default 0")
     private int amount;
     @ManyToMany(fetch = FetchType.LAZY)

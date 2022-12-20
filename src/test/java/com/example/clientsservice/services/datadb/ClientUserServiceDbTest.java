@@ -12,14 +12,11 @@ import org.junit.jupiter.api.TestMethodOrder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
-import javax.transaction.Transactional;
-import java.util.HashSet;
+
 import java.util.List;
 
 import static com.example.clientsservice.models.Client.Gender.FEMALE;
 import static com.example.clientsservice.models.Client.Gender.MALE;
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertIterableEquals;
 
 @SpringBootTest
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
@@ -35,8 +32,8 @@ public class ClientUserServiceDbTest {
             null,null,null);
     static Client b = new Client(0,"b","b","b",MALE,"b@test.com",
             null,null,null);
-    static User ad1 = new User(0L,10,new HashSet<>());
-    static User ad2 = new User(0L,20,new HashSet<>());
+    static User ad1 = new User(20,"Gregor","Lobov", User.Role.USER, User.Status.BLOCKED);
+    static User ad2 = new User(10,"Igor","Gobov", User.Role.ADMIN, User.Status.ACTIVE);
     @Test
     @Order(1)
     void save() {
