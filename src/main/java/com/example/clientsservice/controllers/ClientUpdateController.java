@@ -15,6 +15,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import java.util.Set;
+
 @Controller
 public class ClientUpdateController {
     @Autowired
@@ -23,6 +25,7 @@ public class ClientUpdateController {
     @GetMapping("clientUpdate")
     public String load(@RequestParam("id") Integer id, Model model) {
         Client client = clientService.findById(id);
+        client.setPhones((Set<Phone>) new Phone());
         model.addAttribute("client", client);
         model.addAttribute("genders",Client.Gender.values());
         return "clientUpdate";
