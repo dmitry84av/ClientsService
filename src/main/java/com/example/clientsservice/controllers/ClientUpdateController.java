@@ -2,6 +2,7 @@ package com.example.clientsservice.controllers;
 
 import com.example.clientsservice.models.Address;
 import com.example.clientsservice.models.Client;
+import com.example.clientsservice.models.Phone;
 import com.example.clientsservice.srvices.data.AddressService;
 import com.example.clientsservice.srvices.data.ClientService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,5 +33,15 @@ public class ClientUpdateController {
         clientService.save(client);
         return new ModelAndView("redirect:clientUpdate",
                 new ModelMap("id",client.getId()));
+    }
+    @PostMapping("updateClientPhoneForm")
+    public ModelAndView updateClientPhoneForm(
+            @ModelAttribute Client client,
+            @ModelAttribute Phone phone
+    ) {
+        System.err.println(client);
+        System.err.println(phone);
+        return new ModelAndView("redirect:clientUpdate",
+        new ModelMap("id", client.getId()));
     }
 }
