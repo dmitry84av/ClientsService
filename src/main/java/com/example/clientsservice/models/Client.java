@@ -4,7 +4,6 @@ import lombok.*;
 
 import javax.persistence.*;
 
-import java.util.Objects;
 import java.util.Set;
 
 @Getter
@@ -15,11 +14,6 @@ import java.util.Set;
 @Entity
 @Table(name = "clients")
 public class Client {
-
-
-    public boolean getUsers() {
-        return false;
-    }
 
     public enum Gender{
         NONE, MALE,FEMALE
@@ -53,29 +47,4 @@ public class Client {
                     foreignKey = @ForeignKey(name = "FK_accounts"))
     )
     private Set<Account> accounts;
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Client client = (Client) o;
-        return Objects.equals(id, client.id) && Objects.equals(surname, client.surname) && Objects.equals(name, client.name) && Objects.equals(patronymic, client.patronymic) && gender == client.gender && Objects.equals(email, client.email);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(id, surname, name, patronymic, gender, email);
-    }
-
-    @Override
-    public String toString() {
-        return "Client{" +
-                "id=" + id +
-                ", surname='" + surname + '\'' +
-                ", name='" + name + '\'' +
-                ", patronymic='" + patronymic + '\'' +
-                ", gender=" + gender +
-                ", email='" + email + '\'' +
-                '}';
-    }
 }

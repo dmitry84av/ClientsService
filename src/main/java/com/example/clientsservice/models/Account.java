@@ -25,28 +25,4 @@ public class Account {
     private int amount;
     @ManyToMany(fetch = FetchType.LAZY)
     private Set<Client> clients;
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Account account = (Account) o;
-        return Objects.equals(id, account.id);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(id);
-    }
-
-    @Override
-    public String toString() {
-        return "Account{" +
-                "id=" + id +
-                ", amount=" + amount +
-                '}';
-    }
-
-    public void setClient(Client a) {
-    }
 }
