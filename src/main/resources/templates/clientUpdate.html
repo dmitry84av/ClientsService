@@ -6,7 +6,7 @@
 </head>
 <body>
 <div  class="clientForm">
-  <form th:action="@{/updateClientForm}"  method="post">
+  <form th:action="@{/updateClientPhonesForm}"  method="post">
     <div>
         <input type="text" name="id" readonly th:value="${client.id}">
         <input type="text" name="surname" placeholder="Surname" th:value="${client.surname}">
@@ -18,7 +18,7 @@
         <input type="email" name="email" placeholder="Email" th:value="${client.email}">
     </div>
     <div>
-        <input type="text" name="id" placeholder="Id" th:value="${client.phones.id}"
+        <input type="text" name="id" placeholder="Id" th:value="${client.phones.id}">
         <input type="text" name="phone" placeholder="Phone" th:value="${client.phones.phone}">
     </div>
       <input type="submit" value="SAVE">
