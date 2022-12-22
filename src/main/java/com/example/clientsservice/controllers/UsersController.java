@@ -1,6 +1,4 @@
 package com.example.clientsservice.controllers;
-
-
 import com.example.clientsservice.models.User;
 import com.example.clientsservice.srvices.data.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,16 +10,12 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
-
 import java.util.List;
-
 @Controller
 public class UsersController {
     @Qualifier("userServiceDb")
     @Autowired
     private UserService userService;
-
-
     @GetMapping("/users")
     public String loadUsers(Model model) {
         List<User> list = userService.findAll();
@@ -39,7 +33,6 @@ public class UsersController {
         userService.save(user);
         return "redirect:";
     }
-
     @PostMapping("thisUserForm")
     public ModelAndView thisUserForm(@RequestParam("id") Integer id) {
         return new ModelAndView("redirect:userUpdate", new ModelMap("userId", id));
