@@ -15,7 +15,7 @@
       <option th:each="gender:${genders}" th:value="${gender}" th:utext="${gender}"></option>
       th:selected="${gender==client.gender}"></option>
     </select>
-    <input type="emeil" name="emeil" placeholder="Email" th:value="${client.emeil}">
+    <input type="email" name="email" placeholder="Email" th:value="${client.email}">
     <input type="submit" value="SAVE">
     <input >
 

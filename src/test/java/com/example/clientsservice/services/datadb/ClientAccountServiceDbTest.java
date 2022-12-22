@@ -1,4 +1,4 @@
-package com.example.clientsservice.services.datadb;
+/*package com.example.clientsservice.services.datadb;
 
 import com.example.clientsservice.models.Account;
 import com.example.clientsservice.models.Client;
@@ -44,4 +44,4 @@ public class ClientAccountServiceDbTest {
         clientService.saveAll(clientList);
         accountService.saveAll(accountList);
     }
-}
+}*/
