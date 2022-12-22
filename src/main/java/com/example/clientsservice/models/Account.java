@@ -9,7 +9,6 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
-
 @Getter
 @Setter
 @NoArgsConstructor
@@ -25,7 +24,6 @@ public class Account {
     private int amount;
     @ManyToMany(fetch = FetchType.LAZY)
     private Set<Client> clients;
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -33,12 +31,10 @@ public class Account {
         Account account = (Account) o;
         return Objects.equals(id, account.id);
     }
-
     @Override
     public int hashCode() {
         return Objects.hash(id);
     }
-
     @Override
     public String toString() {
         return "Account{" +

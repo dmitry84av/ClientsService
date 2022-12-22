@@ -1,17 +1,11 @@
 package com.example.clientsservice.models;
-
-
 import lombok.*;
-
 import javax.persistence.*;
 import java.util.Objects;
-
-
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-//
 @Entity
 @Table(name = "phones")
 public class Phone {
@@ -28,17 +22,14 @@ public class Phone {
         Phone phone1 = (Phone) o;
         return Objects.equals(id, phone1.id) && Objects.equals(phone, phone1.phone);
     }
-
     @Override
     public int hashCode() {
         return Objects.hash(id, phone);
     }
-
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "client_id", nullable = false,
     foreignKey = @ForeignKey(name = "FK_phones_clients"))
     private Client client;
-
     @Override
     public String toString() {
         return "Phone{" +

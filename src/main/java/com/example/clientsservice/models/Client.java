@@ -1,22 +1,16 @@
 package com.example.clientsservice.models;
-
 import lombok.*;
-
 import javax.persistence.*;
 import java.util.List;
 import java.util.Objects;
 import java.util.Set;
-
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-//
 @Entity
 @Table(name = "clients")
 public class Client {
-
-
     public enum Gender{
         NONE, MALE,FEMALE
     }
@@ -49,7 +43,6 @@ public class Client {
                     foreignKey = @ForeignKey(name = "FK_accounts"))
     )
     private Set<Account> accounts;
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -57,12 +50,10 @@ public class Client {
         Client client = (Client) o;
         return Objects.equals(id, client.id) && Objects.equals(surname, client.surname) && Objects.equals(name, client.name) && Objects.equals(patronymic, client.patronymic) && gender == client.gender && Objects.equals(email, client.email);
     }
-
     @Override
     public int hashCode() {
         return Objects.hash(id, surname, name, patronymic, gender, email);
     }
-
     @Override
     public String toString() {
         return "Client{" +

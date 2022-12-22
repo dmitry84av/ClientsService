@@ -1,5 +1,4 @@
 package com.example.clientsservice.controllers;
-
 import com.example.clientsservice.models.Client;
 import com.example.clientsservice.srvices.data.ClientService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,12 +14,10 @@ import java.util.List;
 public class ClientsController {
     @Autowired
     private ClientService clientService;
-
     @GetMapping("/")
     public String load() {
         return "redirect:clients";
     }
-
     @GetMapping("/clients")
     public String loadClients(Model model) {
         List<Client> list = clientService.findAll();
