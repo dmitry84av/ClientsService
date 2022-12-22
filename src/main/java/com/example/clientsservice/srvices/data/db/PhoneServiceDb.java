@@ -13,6 +13,6 @@ public class PhoneServiceDb implements PhoneService {
 
     @Override
     public Phone save(Phone phone) {
-        return null;
+        return phoneRepository.save(phone);
     }
 }

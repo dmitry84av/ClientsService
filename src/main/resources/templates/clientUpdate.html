@@ -6,16 +6,28 @@
 </head>
 <body>
 <div  class="clientForm">
-  <form th:action="@{/updateClientForm}"  method="post">
-    <input type="text" name="id" readonly th:value="${client.id}">
-    <input type="text" name="surname" placeholder="Surname" th:value="${client.surname}">
-    <input type="text" name="name" placeholder="Name" th:value="${client.name}">
-    <input type="text" name="patronymic" placeholder="Patronymic" th:value="${client.patronymic}">
-    <select name="gender" id="gender">
-      <option th:each="gender:${genders}" th:value="${gender}" th:utext="${gender}"
-              th:selected="${gender==client.gender}"></option>
-    </select>
-    <input type="email" name="email" placeholder="Email" th:value="${client.email}">
+  <form th:action="@{/updateClientPhoneForm}"  method="post">
+    <div>
+         <input type="text" name="id" readonly th:value="${client.id}">
+         <input type="text" name="surname" placeholder="Surname" th:value="${client.surname}">
+         <input type="text" name="name" placeholder="Name" th:value="${client.name}">
+         <input type="text" name="patronymic" placeholder="Patronymic" th:value="${client.patronymic}">
+          <select name="gender" id="gender">
+             <option th:each="gender:${genders}" th:value="${gender}" th:utext="${gender}"
+                     th:selected="${gender==client.gender}"></option>
+          </select>
+          <input type="email" name="email" placeholder="Email" th:value="${client.email}">
+    </div>
+    <div class="phones">
+      <table>
+        <tr>
+          <th>Phone</th>
+        </tr>
+        <tr th:each="phone:${client.phones}">
+          <td><input type="text" name="phone" th:value="*{phone.getPhone()}"> </td>
+        </tr>
+      </table>
+    </div>
     <input type="submit" value="SAVE">
   </form>
 </div>
