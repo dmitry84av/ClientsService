@@ -20,7 +20,7 @@ public class ClientUpdateController {
     @GetMapping("clientUpdate")
     public String load(@RequestParam("id") Integer id, Model model) {
         Client client = clientService.findById(id);
-        model.addAttribute("client",client);
+        model.addAttribute("client", client);
         model.addAttribute("genders",Client.Gender.values());
         return "clientUpdate";
     }

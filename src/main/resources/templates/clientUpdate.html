@@ -12,13 +12,11 @@
     <input type="text" name="name" placeholder="Name" th:value="${client.name}">
     <input type="text" name="patronymic" placeholder="Patronymic" th:value="${client.patronymic}">
     <select name="gender" id="gender">
-      <option th:each="gender:${genders}" th:value="${gender}" th:utext="${gender}"></option>
-      th:selected="${gender==client.gender}"></option>
+      <option th:each="gender:${genders}" th:value="${gender}" th:utext="${gender}"
+              th:selected="${gender==client.gender}"></option>
     </select>
     <input type="email" name="email" placeholder="Email" th:value="${client.email}">
     <input type="submit" value="SAVE">
-    <input >
-
   </form>
 </div>
 </body>

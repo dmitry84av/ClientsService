@@ -33,7 +33,7 @@ public class ClientsController {
 		return "redirect:clients";
 	}
 	@PostMapping("openClientForm")
-	public ModelAndView openClientForm(@RequestParam("id")Integer id){
-		return new ModelAndView("redirect:clientUpdate", new ModelMap("id",id));
+	public ModelAndView openClientForm(@RequestParam("id") Integer id) {
+		return new ModelAndView("redirect:clientUpdate", new ModelMap("id", id));
 	}
 }
