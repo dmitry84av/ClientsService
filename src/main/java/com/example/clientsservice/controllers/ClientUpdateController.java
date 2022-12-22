@@ -44,7 +44,8 @@ public class ClientUpdateController {
     public ModelAndView updateClientAddressForm(
             @ModelAttribute Client client,
             @ModelAttribute Address address,
-            @RequestParam(value = "idAddress", required = false) Integer idAddress) {
+            @RequestParam(value = "idAddress", required = false) Integer idAddress
+    ) {
         address.setId(idAddress);
         System.err.println(client);
         System.err.println(address);
