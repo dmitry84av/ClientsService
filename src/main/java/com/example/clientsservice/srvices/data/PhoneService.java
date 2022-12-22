@@ -9,4 +9,6 @@ public interface PhoneService {
     Phone save(Phone phone);
 
     List<Phone> findAll();
+
+    Phone findById(Integer id);
 }

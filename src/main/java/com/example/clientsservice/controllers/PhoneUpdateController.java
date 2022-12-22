@@ -1,4 +1,5 @@
 package com.example.clientsservice.controllers;
+import com.example.clientsservice.models.Phone;
 import com.example.clientsservice.models.User;
 import com.example.clientsservice.srvices.data.PhoneService;
 import com.example.clientsservice.srvices.data.UserService;
@@ -20,15 +21,15 @@ public class PhoneUpdateController {
     @GetMapping("phoneUpdate")
     public String load(@RequestParam("id") Integer id, Model model) {
         Phone phone = phoneService.findById(id);
-        model.addAttribute("user",user);
-        return "userUpdate";
+        model.addAttribute("phone",phone);
+        return "phoneUpdate";
     }
 
-    @PostMapping("updateUserForm")
-    public ModelAndView method(@ModelAttribute User user) {
-        System.err.println(user);
-        userService.save(user);
-        return new ModelAndView("redirect:userUpdate",
-                new ModelMap("id", user.getId()));
+    @PostMapping("updatePhoneForm")
+    public ModelAndView method(@ModelAttribute Phone phone) {
+        System.err.println(phone);
+        phoneService.save(phone);
+        return new ModelAndView("redirect:phoneUpdate",
+                new ModelMap("id", phone.getId()));
     }
 }

@@ -21,4 +21,8 @@ public class PhoneServiceDb implements PhoneService {
     @Override
     public List<Phone> findAll() { return phoneRepository.findAll();
     }
+
+    @Override
+    public Phone findById(Integer id) { return phoneRepository.findById(id).get();
+    }
 }
