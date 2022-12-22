@@ -14,7 +14,8 @@
     <select name="gender" id="gender">
       <option th:each="gender:${genders}" th:value="${gender}" th:utext="${gender}" th:selected=""></option>
     </select>
-    <input type="emeil" name="emeil" placeholder="Email" th:value="${client.emeil}">
+    <input type="email" name="email" placeholder="Email" th:value="${client.email}">
+    <input type="phone" name="phone" placeholder="Phone" th:value="${client.phone}">
     <input type="submit" value="SAVE">
     <input >
   </form>
