@@ -1,5 +1,4 @@
 package com.example.clientsservice.controllers;
-
 import com.example.clientsservice.models.User;
 import com.example.clientsservice.srvices.data.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,7 +25,7 @@ public class UserUpdateController {
         return "userUpdate";
     }
 
-    @PostMapping ("updateUserForm")
+    @PostMapping("updateUserForm")
     public ModelAndView method(@ModelAttribute User user) {
         System.err.println(user);
         userService.save(user);
