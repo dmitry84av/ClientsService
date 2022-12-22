@@ -6,9 +6,8 @@ import com.example.clientsservice.models.Address;
 import java.util.List;
 
 public interface AddressService {
-    static Address save(Address address) {
-        return null;
-    }
 
     List<Address> saveAll(List<Address> address);
+
+    Address save(Address address);
 }

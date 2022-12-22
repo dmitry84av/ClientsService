@@ -37,22 +37,20 @@ public class Client {
     private Gender gender;
     @Column(length = 50, nullable = false, unique = true)
     private String email;
-    @OneToOne(orphanRemoval = true)
-    @JoinTable(name = "clients_address",
-            joinColumns = @JoinColumn(name = "client_id"),
-            inverseJoinColumns = @JoinColumn(name = "address_id"))
-    private Address address;
     @OneToMany(mappedBy = "client", fetch = FetchType.LAZY)
     private Set<Phone> phones;
+
+
     @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(
             name = "clients_accounts",
-            joinColumns = @JoinColumn(name = "client_id", nullable = false,
-                    foreignKey = @ForeignKey(name = "FK_clients")),
-            inverseJoinColumns = @JoinColumn(name = "account_id", nullable = false,
-                    foreignKey = @ForeignKey(name = "FK_accounts"))
-    )
+            joinColumns = @JoinColumn(name = "client_id"),
+            inverseJoinColumns = @JoinColumn(name = "account_id"))
     private Set<Account> accounts;
+
+    @OneToOne (mappedBy = "client",fetch = FetchType.LAZY)
+    private Address address;
+
 
     @Override
     public boolean equals(Object o) {

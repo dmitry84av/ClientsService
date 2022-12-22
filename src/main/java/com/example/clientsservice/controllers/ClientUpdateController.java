@@ -2,6 +2,7 @@ package com.example.clientsservice.controllers;
 import com.example.clientsservice.models.Address;
 import com.example.clientsservice.models.Client;
 import com.example.clientsservice.models.Phone;
+import com.example.clientsservice.srvices.data.AddressService;
 import com.example.clientsservice.srvices.data.ClientService;
 import com.example.clientsservice.srvices.data.PhoneService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,21 +24,21 @@ public class ClientUpdateController {
     @Autowired
     private PhoneService phoneService;
     @Autowired
-    private PhoneService addressService;
+    private AddressService addressService;
 
     @GetMapping("clientUpdate")
     public String load(@RequestParam("id") Integer id, Model model) {
         Client client = clientService.findById(id);
-        client.setAddress(new Address());
         model.addAttribute("client", client);
         model.addAttribute("genders",Client.Gender.values());
-        model.addAttribute("address",client.getAddress());
         return "clientUpdate";
     }
     @PostMapping("updateClientForm")
     public ModelAndView method(@ModelAttribute Client client){
+        System.err.println(client);
         clientService.save(client);
-        return new ModelAndView("redirect:clientUpdate", new ModelMap("id",client.getId()));
+        return new ModelAndView("redirect:clientUpdate",
+                new ModelMap("id",client.getId()));
     }
     @PostMapping("updateClientAddressForm")
     public ModelAndView updateClientAddressForm(
@@ -45,9 +46,12 @@ public class ClientUpdateController {
             @ModelAttribute Address address,
             @RequestParam(value = "idAddress", required = false) Integer idAddress) {
         address.setId(idAddress);
+        System.err.println(client);
+        System.err.println(address);
         address = addressService.save(address);
         client.setAddress(address);
         clientService.save(client);
-        return new ModelAndView("redirect:clientUpdate", new ModelMap("id",client.getId()));
+        return new ModelAndView("redirect:clientUpdate",
+                new ModelMap("id",client.getId()));
     }
 }
