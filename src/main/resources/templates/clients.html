@@ -14,9 +14,7 @@
 			<option th:each="gender:${genders}" th:value="${gender}" th:utext="${gender}"></option>
 		</select>
 		<input type="email" name="email" placeholder="Email">
-		<input type="phone" name="phone" placeholder="Phone">
 		<input type="submit" value="SAVE">
-		<input >
 	</form>
 	</div>
 <div class="table">
@@ -28,7 +26,6 @@
 			<th>Patronymic</th>
 			<th>Gender</th>
 			<th>Email</th>
-			<th>Phone</th>
 		</tr>
 		<tr th:each="client:${clients}">
 			<td th:utext="${client.id}"></td>
@@ -37,11 +34,11 @@
 			<td th:utext="${client.patronymic}"></td>
 			<td th:utext="${client.gender}"></td>
 			<td th:utext="${client.email}"></td>
-			<td th:utext="${client.phone}"></td>
 			<td>
-				<form th:action="@{/openClientForm}" method="post"></form>
-				<input type="hidden" name="id" th:value="${client.id}">
-				<input type="submit" value="&#8942;">
+				<form th:action="@{/openClientForm}" method="post">
+				    <input type="hidden" name="id" th:value="${client.id}">
+				    <input type="submit" value="&#8942;">
+				</form>
 			</td>
 		</tr>
 	</table>

@@ -1,8 +1,5 @@
 package com.example.clientsservice.controllers;
-
-import com.example.clientsservice.models.Address;
 import com.example.clientsservice.models.Client;
-import com.example.clientsservice.srvices.data.AddressService;
 import com.example.clientsservice.srvices.data.ClientService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -13,7 +10,6 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
-
 @Controller
 public class ClientUpdateController {
     @Autowired
