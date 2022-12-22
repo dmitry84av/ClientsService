@@ -1,4 +1,5 @@
 package com.example.clientsservice.controllers;
+import com.example.clientsservice.models.Address;
 import com.example.clientsservice.models.Client;
 import com.example.clientsservice.models.Phone;
 import com.example.clientsservice.srvices.data.ClientService;
@@ -21,12 +22,16 @@ public class ClientUpdateController {
     private ClientService clientService;
     @Autowired
     private PhoneService phoneService;
+    @Autowired
+    private PhoneService addressService;
 
     @GetMapping("clientUpdate")
     public String load(@RequestParam("id") Integer id, Model model) {
         Client client = clientService.findById(id);
+        client.setAddress(new Address());
         model.addAttribute("client", client);
         model.addAttribute("genders",Client.Gender.values());
+        model.addAttribute("address",client.getAddress());
         return "clientUpdate";
     }
     @PostMapping("updateClientForm")
@@ -34,14 +39,14 @@ public class ClientUpdateController {
         clientService.save(client);
         return new ModelAndView("redirect:clientUpdate", new ModelMap("id",client.getId()));
     }
-    @PostMapping("updateClientPhoneForm")
-    public ModelAndView updateClientPhoneForm(
+    @PostMapping("updateClientAddressForm")
+    public ModelAndView updateClientAddressForm(
             @ModelAttribute Client client,
-            @ModelAttribute Phone phone,
-            @RequestParam(value = "idPhone", required = false) Integer idPhone) {
-        phone.setId(idPhone);
-        phone = phoneService.save(phone);
-        client.setPhones((Set<Phone>) phone);
+            @ModelAttribute Address address,
+            @RequestParam(value = "idAddress", required = false) Integer idAddress) {
+        address.setId(idAddress);
+        address = addressService.save(address);
+        client.setAddress(address);
         clientService.save(client);
         return new ModelAndView("redirect:clientUpdate", new ModelMap("id",client.getId()));
     }
