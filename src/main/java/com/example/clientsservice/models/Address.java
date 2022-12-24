@@ -30,6 +30,10 @@ public class Address {
     @Column(nullable = false)
     private  String house;
 
+    @Column(nullable = false)
+    private  String apartment;
+
+
     public <E> Address(long l, int i, HashSet<E> es) {
     }
 
@@ -38,7 +42,7 @@ public class Address {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Address address1 = (Address) o;
-        return Objects.equals(id, address1.id) && Objects.equals(region, address1.region) && Objects.equals(district,address1.district) && Objects.equals(city,address1.city) && Objects.equals(street,address1.street)&& Objects.equals(house,address1.house);
+        return Objects.equals(id, address1.id) && Objects.equals(region, address1.region) && Objects.equals(district,address1.district) && Objects.equals(city,address1.city) && Objects.equals(street,address1.street)&& Objects.equals(house,address1.house)&& Objects.equals(apartment,address1.apartment);
     }
 
     @OneToOne(mappedBy = "address",fetch = FetchType.LAZY)
