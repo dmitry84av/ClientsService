@@ -1,9 +1,6 @@
 package com.example.clientsservice.models;
-
 import lombok.*;
-
 import javax.persistence.*;
-
 import java.util.Objects;
 import java.util.Set;
 
@@ -15,11 +12,6 @@ import java.util.Set;
 @Entity
 @Table(name = "clients")
 public class Client {
-
-
-    public boolean getUsers() {
-        return false;
-    }
 
     public enum Gender{
         NONE, MALE,FEMALE
@@ -37,7 +29,7 @@ public class Client {
     private Gender gender;
     @Column(length = 50, nullable = false, unique = true)
     private String email;
-    @OneToOne(orphanRemoval = true)
+    @OneToOne(fetch = FetchType.LAZY)
     @JoinTable(name = "clients_address",
             joinColumns = @JoinColumn(name = "client_id"),
             inverseJoinColumns = @JoinColumn(name = "address_id"))

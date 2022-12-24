@@ -1,5 +1,4 @@
 package com.example.clientsservice.srvices.data.db;
-
 import com.example.clientsservice.models.Client;
 import com.example.clientsservice.repositiries.ClientRepository;
 import com.example.clientsservice.srvices.data.ClientService;

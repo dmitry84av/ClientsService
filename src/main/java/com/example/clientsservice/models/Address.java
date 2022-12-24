@@ -29,13 +29,11 @@ public class Address {
     private  String street;
     @Column(nullable = false)
     private  String house;
-
     @Column(nullable = false)
     private  String apartment;
 
-
-    public <E> Address(long l, int i, HashSet<E> es) {
-    }
+    @OneToOne(mappedBy = "address")
+    private Client client;
 
     @Override
     public boolean equals(Object o) {
@@ -45,9 +43,7 @@ public class Address {
         return Objects.equals(id, address1.id) && Objects.equals(region, address1.region) && Objects.equals(district,address1.district) && Objects.equals(city,address1.city) && Objects.equals(street,address1.street)&& Objects.equals(house,address1.house)&& Objects.equals(apartment,address1.apartment);
     }
 
-    @OneToOne(mappedBy = "address",fetch = FetchType.LAZY)
-    @JoinColumn(foreignKey = @ForeignKey(name = "FK_address_clients"))
-    private Client client;
+
 
     @Override
     public String toString() {
