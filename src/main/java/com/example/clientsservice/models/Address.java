@@ -14,13 +14,11 @@ import java.util.Objects;
 @ToString
 //
 @Entity
-@Table(name = "address")
+@Table(name = "addresses")
 public class Address {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private  Integer id;
-    @Column(nullable = false,length = 100)
-    private  String address;
     @Column(nullable = false)
     private  String region;
     @Column(nullable = false)
@@ -43,22 +41,10 @@ public class Address {
         return Objects.equals(id, address1.id) && Objects.equals(region, address1.region) && Objects.equals(district,address1.district) && Objects.equals(city,address1.city) && Objects.equals(street,address1.street)&& Objects.equals(house,address1.house);
     }
 
-    @Override
-    public int hashCode() {
-        return Objects.hash(id, address);
-    }
-
     @OneToOne(mappedBy = "address",fetch = FetchType.LAZY)
     @JoinColumn(foreignKey = @ForeignKey(name = "FK_address_clients"))
     private Client client;
 
-    @Override
-    public String toString() {
-        return "Address{" +
-                "id=" + id +
-                ", address='" + address + '\'' +
-                '}';
-    }
 
     public void addAll(List<Address> addressList) {
     }
