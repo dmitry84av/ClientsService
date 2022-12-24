@@ -49,6 +49,18 @@ public class Address {
     @JoinColumn(foreignKey = @ForeignKey(name = "FK_address_clients"))
     private Client client;
 
+    @Override
+    public String toString() {
+        return "Address{" +
+                "id=" + id +
+                ", region='" + region + '\'' +
+                ", district='" + district + '\'' +
+                ", city='" + city + '\'' +
+                ", street='" + street + '\'' +
+                ", house='" + house + '\'' +
+                ", apartment='" + apartment + '\'' +
+                '}';
+    }
 
     public void addAll(List<Address> addressList) {
     }
