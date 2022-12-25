@@ -41,8 +41,8 @@ public class ClientUpdateController {
         return new ModelAndView("redirect:clientUpdate",
                 new ModelMap("id",client.getId()));
     }
-    @PostMapping("updateClientAddressForm")
-    public ModelAndView updateClientAddressForm(
+    @PostMapping("updateClientAddressPhoneForm")
+    public ModelAndView updateClientAddressPhoneForm(
             @ModelAttribute Client client,
             @ModelAttribute Address address,
             @ModelAttribute Phone phone,
@@ -50,7 +50,6 @@ public class ClientUpdateController {
             ) {
         address.setId(idAddress);
         address = addressService.save(address);
-
         client.setAddress(address);
         clientService.save(client);
         return new ModelAndView("redirect:clientUpdate",
