@@ -27,11 +27,18 @@
       <input type="text" name="house" placeholder="House" th:value="*{house}">
       <input type="text" name="apartment" placeholder="Apartment" th:value="*{apartment}">
     </div>
+    <div class="phones">
+      <table>
+        <tr>
+          <th>Phone</th>
+        </tr>
+        <tr th:each="phone:${client.phones}">
+           <input type="text" name="phone" th:value="*{phone.getPhone()}">
+        </tr>
+      </table>
+    </div>
     <input type="submit" value="SAVE">
   </form>
-</div>
-<div class="addressForm">
-  <form action="" method="post"></form>
 </div>
 </body>
 </html>
