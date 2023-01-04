@@ -1,6 +1,10 @@
 package com.example.clientsservice.models;
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.*;
+import org.springframework.format.annotation.DateTimeFormat;
+
 import javax.persistence.*;
+import java.time.LocalDate;
 import java.util.Objects;
 import java.util.Set;
 
@@ -29,13 +33,12 @@ public class Client {
     private Gender gender;
     @Column(length = 50, nullable = false, unique = true)
     private String email;
-    @OneToOne(fetch = FetchType.LAZY)
-    @JoinTable(name = "clients_address",
-            joinColumns = @JoinColumn(name = "client_id"),
-            inverseJoinColumns = @JoinColumn(name = "address_id"))
-    private Address address;
-    @OneToMany(mappedBy = "client", fetch = FetchType.LAZY)
-    private Set<Phone> phones;
+
+    @Column(columnDefinition = "date")
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    //@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
+    private LocalDate birthDate;
+
     @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(
             name = "clients_accounts",
@@ -45,6 +48,27 @@ public class Client {
                     foreignKey = @ForeignKey(name = "FK_accounts"))
     )
     private Set<Account> accounts;
+    @OneToOne(fetch = FetchType.LAZY)
+    @JoinTable(name = "clients_address",
+            joinColumns = @JoinColumn(name = "client_id"),
+            inverseJoinColumns = @JoinColumn(name = "address_id"))
+    private Address address;
+
+    @OneToMany(mappedBy = "client", fetch = FetchType.LAZY)
+    private Set<Phone> phones;
+
+    public Client(Integer id, String surname, String name, String patronymic, Gender gender, String email, Set<Account> accounts, Address address, Set<Phone> phones) {
+        this.id = id;
+        this.surname = surname;
+        this.name = name;
+        this.patronymic = patronymic;
+        this.gender = gender;
+        this.email = email;
+        this.accounts = accounts;
+        this.address = address;
+        this.phones = phones;
+        LocalDate now = LocalDate.now();
+    }
 
     @Override
     public boolean equals(Object o) {
