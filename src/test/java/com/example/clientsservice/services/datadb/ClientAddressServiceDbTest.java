@@ -33,15 +33,14 @@ public class ClientAddressServiceDbTest {
             null,null,null);
     static Client b = new Client(0,"b","b","b",MALE,"b@test.com",
             null,null,null);
-    static Address ad1 = new Address(0L,10,new HashSet<>());
-    static Address ad2 = new Address(0L,20,new HashSet<>());
+    static Address ad1 = new Address(10,"fgf","dfgfd","yukuyk","weg","oill","gfhmm",a);
+    static Address ad2 = new Address(20,"wdx","tnmk","txwn","lald","qqxcop","dlfgoejg",b);
     @Test
     @Order(1)
     void save() {
         List<Client> clientList = clientService.saveAll(List.of(a,b));
         List<Address> addressList = addressService.saveAll(List.of(ad1,ad2));
         //
-        clientList.forEach(client -> client.getAddress().addAll(addressList));
         //
         clientService.saveAll(clientList);
         addressService.saveAll(addressList);

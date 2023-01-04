@@ -7,26 +7,28 @@
 <body>
 <div  class="clientForm">
   <form th:action="@{/updateClientAddressForm}"  method="post">
-    <input type="text" name="id" readonly th:value="${client.id}">
-    <input type="text" name="surname" placeholder="Surname" th:value="${client.surname}">
-    <input type="text" name="name" placeholder="Name" th:value="${client.name}">
-    <input type="text" name="patronymic" placeholder="Patronymic" th:value="${client.patronymic}">
-    <select name="gender" id="gender">
-      <option th:each="gender:${genders}" th:value="${gender}" th:utext="${gender}"></option>
-      th:selected="${gender==client.gender}"></option>
-    </select>
-    <input type="emeil" name="emeil" placeholder="Email" th:value="${client.emeil}">
-  <div th:object="${client.address}">
-  <input type="text" name="id" placeholder="Id" th:value="*{id}">
-  <input type="text" name="region" placeholder="Region" th:value="*{region}">
-  <input type="text" name="district" placeholder="District" th:value="*{district}">
-  <input type="text" name="city" placeholder="City" th:value="*{city}">
-  <input type="textl" name="street" placeholder="Street" th:value="*{street}">
-  <input type="text" name="house" placeholder="House" th:value="*{house}">
-  </div>
+    <div>
+      <input type="text" name="id" readonly th:value="${client.id}">
+      <input type="text" name="surname" placeholder="Surname" th:value="${client.surname}">
+      <input type="text" name="name" placeholder="Name" th:value="${client.name}">
+      <input type="text" name="patronymic" placeholder="Patronymic" th:value="${client.patronymic}">
+      <select name="gender" id="gender">
+        <option th:each="gender:${genders}" th:value="${gender}" th:utext="${gender}"
+                th:selected="${gender==client.gender}"></option>
+      </select>
+    <input type="email" name="email" placeholder="Email" th:value="${client.email}">
+    </div>
+    <div th:object="${client.addresses}">
+      <input type="text" name="idAddress" placeholder="Id" th:value="*{id}">
+      <input type="text" name="region" placeholder="Region" th:value="*{region}">
+      <input type="text" name="district" placeholder="District" th:value="*{district}">
+      <input type="text" name="city" placeholder="City" th:value="*{city}">
+      <input type="textl" name="street" placeholder="Street" th:value="*{street}">
+      <input type="text" name="house" placeholder="House" th:value="*{house}">
+      <input type="text" name="apartment" placeholder="Apartment" th:value="*{apartment}">
+    </div>
     <input type="submit" value="SAVE">
     <input >
-
   </form>
 </div>
 <div class="addressForm">

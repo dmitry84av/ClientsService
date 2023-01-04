@@ -24,11 +24,11 @@ public class ClientUpdateController {
     @GetMapping("clientUpdate")
     public String load(@RequestParam("id") Integer id, Model model) {
         Client client = clientService.findById(id);
-        if (client.getAddress() == null)
+        if (client.getAddress() == null) {
             client.setAddress(new Address());
+        }
         model.addAttribute("client",client);
         model.addAttribute("genders",Client.Gender.values());
-
         return "clientUpdate";
     }
     @PostMapping("updateClientForm")
