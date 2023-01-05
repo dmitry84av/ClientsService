@@ -10,12 +10,14 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public abstract class AddressServiceDb implements AddressService {
+public class AddressServiceDb implements AddressService {
 
     @Autowired
     private AddressRepository addressRepository;
 
 
-
-
+    @Override
+    public List<Address> saveAll(List<Address> address) {
+        return addressRepository.saveAll(address);
+    }
 }
