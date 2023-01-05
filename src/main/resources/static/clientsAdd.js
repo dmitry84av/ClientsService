@@ -53,6 +53,6 @@ function ajaxSubmitForm(){
             let output = document.getElementById('tableOutput')
             output.innerHTML = result
         }
-
+        else alert(request.status)
     })
 }
