@@ -23,7 +23,8 @@ public class Account {
     private Long id;
     @Column(columnDefinition = "int default 0")
     private int amount;
-    @ManyToMany(fetch = FetchType.LAZY)
+
+    @ManyToMany(mappedBy = "accounts", fetch = FetchType.LAZY)
     private Set<Client> clients;
 
     @Override

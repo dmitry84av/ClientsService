@@ -1,11 +1,12 @@
-document.addEventListener('DOMContentLoaded',function (){
-    document.getElementById('submitAddClientForm').onclick = function (ev){
+document.addEventListener('DOMContentLoaded',function () {
+    document.getElementById('submitAddClientForm').onclick = function (ev) {
         ev.preventDefault()
         ajaxSubmitForm()
     }
 })
+
 function ajaxSubmitForm(){
-    let form =document.getElementById('addClientForm')
+    let form = document.getElementById('addClientForm')
     let formData = new FormData(form)
     let json=JSON.stringify(Object.fromEntries(formData))
     //

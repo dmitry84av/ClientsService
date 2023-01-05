@@ -23,7 +23,6 @@ public class ClientsController {
 	public String load(Model model) {
 		List<Client> list = clientService.findAll();
 		model.addAttribute("clients", list);
-
 		model.addAttribute("genders", Client.Gender.values());
 		return "clients";
 	}
