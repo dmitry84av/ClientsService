@@ -46,7 +46,7 @@ function ajaxSubmitForm(){
 </form>
 </td>
 </tr>
-{{clients}}
+{{/clients}}
 </table>
             `
             let result = mustache.render(html, clients)
