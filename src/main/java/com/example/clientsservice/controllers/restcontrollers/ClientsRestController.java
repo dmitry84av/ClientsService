@@ -20,7 +20,7 @@ public class ClientsRestController {
     public ResponseEntity<?> addClientForm(@RequestBody Client client) {
         System.err.println(client);
         clientService.save(client);
-        List<Client> list =clientService.findAll();
+        List<Client> list = clientService.findAll();
         return new ResponseEntity<>(list, HttpStatus.OK);
     }
 }

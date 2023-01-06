@@ -25,7 +25,7 @@ const html=`
 </tr>
 {{/clients}}
 </table>
-            `
+`
 $(document).ready(() => {
     $('#submitAddClientForm').click((ev) => {
         ev.preventDefault()
@@ -34,7 +34,7 @@ $(document).ready(() => {
 })
 
 function ajaxSubmitForm() {
-    let form = $('#addClientForm')
+    let form = $('#addClientForm')[0]
     let formData = new FormData(form)
     let json = JSON.stringify(Object.fromEntries(formData))
     //
@@ -53,10 +53,10 @@ function ajaxSubmitForm() {
             let result = mustache.render(html,clients)
             $('#tableOutput').html(result)
         },
-        error: function (reqInfo, textStatus, errorThrows) {
+        error: function (reqInfo, textStatus, errorThrown) {
             console.log(reqInfo)
             console.log(textStatus)
-            console.log(errorThrows)
+            console.log(errorThrown)
         }
     })
 }
