@@ -1,10 +1,14 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Error</title>
+    <th:block th:insert="~{fragments/headSettings::headSettings}"></th:block>
 </head>
 <body>
 <th:block th:insert="~{fragments/pageHeder::pageHeder}"></th:block>
+<div>
+    <h2 style="color: brown">Error</h2>
+</div>
 </body>
 </html>

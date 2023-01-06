@@ -14,14 +14,6 @@ import java.util.HashSet;
 @Entity
 @Table(name = "users")
 public class User {
-
-
-    public <E> User(long l, int i, HashSet<E> es) {
-    }
-
-    public void setClient(Client a) {
-    }
-
     public enum Role{
         USER,ADMIN
     }
@@ -31,14 +23,17 @@ public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
+
     @Column(length = 50, nullable = false, unique = true)
     private String username;
+
     @Column(nullable = false)
     private String password;
-    @Column(nullable = false)
-    private Role role;
-    @Column(nullable = false)
-    private Status status;
 
+    @Column(nullable = true, columnDefinition = "enum('USER','ADMIN') default 'USER'")
+    private Role role;
+
+    @Column(nullable = false, columnDefinition = "int(1) default 0")
+    private Status status;
 
 }

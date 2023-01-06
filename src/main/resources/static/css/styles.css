@@ -1,3 +1,18 @@
 *{
-    color: brown;
+    font-family: Roboto, serif ;
+}
+
+.lanCont{
+    margin: 0 auto 20px;
+    padding: 10px;
+    background: #F2F5F9;
+}
+.lanEl{
+    float: left;
+    margin-right: 10px;
+    text-align: center;
+}
+.lanCont :last-child {
+    margin-right: 0;
+
 }
