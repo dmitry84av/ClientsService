@@ -8,11 +8,10 @@
 <body>
 <th:block th:insert="~{fragments/pageHeder::pageHeder}"></th:block>
 <div class="userForm">
-    {{#user}}
-    <form action="userUpdateForm" method="post">
-        <input type="hidden" name="id" value="{{id}}">
-        <input type="text" name="username" placeholder="Username" value="{{username}}">
-        <input type="text" name="password" placeholder="Password" value="{{password}}">
+    <form th:action="@{/userUpdateForm}" method="post">
+        <input type="text" name="id" readonly th:value="${user.id}">
+        <input type="text" name="username" placeholder="Username" th:value="${user.username}">
+        <input type="text" name="password" placeholder="Password" th:value="${user.password}">
         <select name="role" id="role">
             <option value="USER" {{USER}}>USER</option>
             <option value="ADMIN" {{ADMIN}}>ADMIN</option>
@@ -24,7 +23,6 @@
         </select>
         <input type="submit" value="SAVE" id="submitButton">
     </form>
-    {{/user}}
 </div>
 </body>
 </html>

@@ -4,11 +4,14 @@
     <meta charset="UTF-8">
     <title>Users</title>
     <th:block th:insert="~{fragments/headSettings::headSettings}"></th:block>
+    <script src="/mustache.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="/usersAddJquery.js"></script>
 </head>
 <body>
 <th:block th:insert="~{fragments/pageHeder::pageHeder}"></th:block>
-<div id="addUsers">
-    <form action="/userAddForm" method="post">
+<div class="usersForm">
+    <form th:action="@{/AddUserForm}" method="post" id="AddUserForm">
         <input type="text" name="username" placeholder="Username">
         <input type="text" name="password" placeholder="Password">
         <select name="role" id="role">
@@ -23,7 +26,7 @@
         <input type="submit" value="SAVE" id="submitButton">
     </form>
 </div>
-<div id="usersTable">
+<div class="table" id="usersTable">
     <table>
         <tr>
             <th>ID</th>
@@ -32,21 +35,19 @@
             <th>Role</th>
             <th>Status</th>
         </tr>
-        {{#users}}
-            <tr>
-                <td>{{id}}</td>
-                <td>{{username}}</td>
-                <td>{{password}}</td>
-                <td>{{role}}</td>
-                <td>{{status}}</td>
+            <tr th:each="user:${users}">
+                <td th:utext="${users.id}"></td>
+                <td th:utext="${users.username}"></td>
+                <td th:utext="${users.password}"></td>
+                <td th:utext="${users.role}"></td>
+                <td th:utext="${users.status}"></td>
                 <td>
-                    <form action="thisUserForm" method="post">
-                        <input type="hidden" name="id" value="{{id}}">
+                    <form th:action="@{/thisUserForm}" method="post">
+                        <input type="hidden" name="id" th:value="${user.id}">
                         <input type="submit" value="&#8942;">
                     </form>
                 </td>
             </tr>
-        {{/users}}
     </table>
 </div>
 </body>

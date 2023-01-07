@@ -25,8 +25,8 @@ public class UsersController {
         model.addAttribute("users",list);
         return "users";
     }
-    @PostMapping("userAddForm")
-    public String userAddForm(
+    @PostMapping("AddUserForm")
+    public String AddUserForm(
             @RequestParam("username") String username,
             @RequestParam("password") String password,
             @RequestParam("role") User.Role role,
