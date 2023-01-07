@@ -38,7 +38,7 @@ function ajaxSubmitForm(){
                 <td>{{role}}</td>
                 <td>{{status}}</td>
                 <td>
-                    <form action="thisUserForm" method="post">
+                    <form action="/openUserForm" method="post">
                         <input type="hidden" name="id" value="{{id}}">
                         <input type="submit" value="&#8942;">
                     </form>

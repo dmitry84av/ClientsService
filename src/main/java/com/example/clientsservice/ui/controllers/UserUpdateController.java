@@ -39,7 +39,7 @@ public class UserUpdateController {
     }
     @PostMapping("userUpdateForm")
     public ModelAndView userUpdateForm(@ModelAttribute("user") User user) {
-        UserService.save(user);
+        userService.save(user);
         return new ModelAndView("redirect:userUpdate",
                 new ModelMap("userId", user.getId()));
     }

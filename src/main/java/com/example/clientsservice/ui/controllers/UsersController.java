@@ -33,11 +33,11 @@ public class UsersController {
             @RequestParam("status") User.Status status
     ) {
         User user = new User(0, username, password, role,status);
-        UserService.save(user);
-        return "redirect:";
+        userService.save(user);
+        return "redirect:users";
     }
-    @PostMapping("thisUserForm")
-    public ModelAndView thisUserForm(@RequestParam("id") Integer id) {
+    @PostMapping("openUserForm")
+    public ModelAndView openUserForm(@RequestParam("id") Integer id) {
         return new ModelAndView("redirect:userUpdate", new ModelMap("userId", id));
     }
 }

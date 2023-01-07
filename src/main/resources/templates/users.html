@@ -10,7 +10,7 @@
 </head>
 <body>
 <th:block th:insert="~{fragments/pageHeder::pageHeder}"></th:block>
-<div class="usersForm">
+<div class="userForm">
     <form th:action="@{/AddUserForm}" method="post" id="AddUserForm">
         <input type="text" name="username" placeholder="Username">
         <input type="text" name="password" placeholder="Password">
@@ -23,10 +23,10 @@
             <option value="ACTIVE">ACTIVE</option>
             <option value="BLOCKED">BLOCKED</option>
         </select>
-        <input type="submit" value="SAVE" id="submitButton">
+        <input type="submit" id="submitAddUserForm" value="SAVE">
     </form>
 </div>
-<div class="table" id="usersTable">
+<div class="table" id="tableOutput">
     <table>
         <tr>
             <th>ID</th>
@@ -36,13 +36,13 @@
             <th>Status</th>
         </tr>
             <tr th:each="user:${users}">
-                <td th:utext="${users.id}"></td>
-                <td th:utext="${users.username}"></td>
-                <td th:utext="${users.password}"></td>
-                <td th:utext="${users.role}"></td>
-                <td th:utext="${users.status}"></td>
+                <td th:utext="${user.id}"></td>
+                <td th:utext="${user.username}"></td>
+                <td th:utext="${user.password}"></td>
+                <td th:utext="${user.role}"></td>
+                <td th:utext="${user.status}"></td>
                 <td>
-                    <form th:action="@{/thisUserForm}" method="post">
+                    <form th:action="@{/openUserForm}" method="post">
                         <input type="hidden" name="id" th:value="${user.id}">
                         <input type="submit" value="&#8942;">
                     </form>
