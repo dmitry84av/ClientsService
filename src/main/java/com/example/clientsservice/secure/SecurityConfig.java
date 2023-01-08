@@ -11,10 +11,12 @@ import static com.example.clientsservice.models.User.Role.USER;
 
 @Configuration
 public class SecurityConfig {
+
     @Bean
     public BCryptPasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
     }
+
     @Bean
     public InMemoryUserDetailsManager inMemory(BCryptPasswordEncoder encoder) {
         return new InMemoryUserDetailsManager(
@@ -30,7 +32,6 @@ public class SecurityConfig {
                         .password("a")
                         .roles(ADMIN.name())
                         .build()
-
         );
     }
 }
