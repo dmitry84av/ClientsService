@@ -4,29 +4,23 @@
     <meta charset="UTF-8">
     <title>Users</title>
     <th:block th:insert="~{fragments/headSettings::headSettings}"></th:block>
-    <script src="/mustache.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="/usersAddJquery.js"></script>
 </head>
 <body>
 <th:block th:insert="~{fragments/pageHeder::pageHeder}"></th:block>
 <div class="userForm">
-    <form th:action="@{/AddUserForm}" method="post" id="AddUserForm">
+    <form th:action="@{/addUserForm}" method="post">
         <input type="text" name="username" placeholder="Username">
-        <input type="text" name="password" placeholder="Password">
+        <input type="password" name="password" placeholder="Password">
         <select name="role" id="role">
-            <option value="USER">USER</option>
-            <option value="ADMIN">ADMIN</option>
+            <option th:each="role:${roles}" th:value="${role}" th:utext="${role}"></option>
         </select>
         <select name="status" id="status">
-            <option value="CREATED">CREATED</option>
-            <option value="ACTIVE">ACTIVE</option>
-            <option value="BLOCKED">BLOCKED</option>
+            <option th:each="status:${statuses}" th:value="${status}" th:utext="${status}"></option>
         </select>
-        <input type="submit" id="submitAddUserForm" value="SAVE">
+        <input type="submit" value="SAVE">
     </form>
 </div>
-<div class="table" id="tableOutput">
+<div class="table">
     <table>
         <tr>
             <th>ID</th>
