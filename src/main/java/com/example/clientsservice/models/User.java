@@ -30,7 +30,7 @@ public class User {
     @Column(nullable = false)
     private String password;
 
-    @Column(nullable = false)
+    @Column(nullable = false, columnDefinition = "int(1) default 0")
             /*columnDefinition = "enum('USER','ADMIN') default 'USER'"*/
     private Role role;
 
