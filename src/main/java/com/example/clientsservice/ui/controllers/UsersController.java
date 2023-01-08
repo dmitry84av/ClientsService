@@ -19,14 +19,14 @@ public class UsersController {
     @Autowired
     private UserService userService;
 
-    @GetMapping("/users")
-    public String loadUsers(Model model) {
-        List<User> list =userService.findAll();
+    @GetMapping("users")
+    public String load(Model model) {
+        List<User> list = userService.findAll();
         model.addAttribute("users",list);
         return "users";
     }
-    @PostMapping("AddUserForm")
-    public String AddUserForm(
+    @PostMapping("addUserForm")
+    public String addUserForm(
             @RequestParam("username") String username,
             @RequestParam("password") String password,
             @RequestParam("role") User.Role role,
@@ -38,6 +38,6 @@ public class UsersController {
     }
     @PostMapping("openUserForm")
     public ModelAndView openUserForm(@RequestParam("id") Integer id) {
-        return new ModelAndView("redirect:userUpdate", new ModelMap("userId", id));
+        return new ModelAndView("redirect:userUpdate", new ModelMap("id", id));
     }
 }

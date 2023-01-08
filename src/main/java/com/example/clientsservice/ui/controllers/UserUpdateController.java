@@ -22,7 +22,7 @@ public class UserUpdateController {
     private UserService userService;
 
     @GetMapping("userUpdate")
-    public String load(@RequestParam("userId") Integer id, Model model) {
+    public String load(@RequestParam("id") Integer id, Model model) {
         User user = userService.findById(id);
         model.addAttribute("user", user);
         Map<User.Role, String> roles = new HashMap<>();
@@ -41,6 +41,6 @@ public class UserUpdateController {
     public ModelAndView userUpdateForm(@ModelAttribute("user") User user) {
         userService.save(user);
         return new ModelAndView("redirect:userUpdate",
-                new ModelMap("userId", user.getId()));
+                new ModelMap("id", user.getId()));
     }
 }
