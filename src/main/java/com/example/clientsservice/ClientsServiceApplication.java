@@ -21,7 +21,7 @@ public class ClientsServiceApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(ClientsServiceApplication.class, args);
 	}
-	//@Autowired
+	@Autowired
 	private final ClientRepository clientRepository;
 
 	@Autowired
@@ -43,7 +43,7 @@ public class ClientsServiceApplication {
 		clientRepository.saveAll(List.of(a, b));*/
 		//users
 		User admin = new User(0,"a","a",User.Role.ADMIN, User.Status.ACTIVE);
-		User user = new User(0,"u","u",User.Role.ADMIN, User.Status.ACTIVE);
+		User user = new User(0,"u","u",User.Role.USER, User.Status.ACTIVE);
 		admin.setPassword(passwordEncoder.encode(admin.getPassword()));
 		user.setPassword(passwordEncoder.encode(user.getPassword()));
 		userRepository.saveAll(List.of(admin, user));

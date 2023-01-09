@@ -1,4 +1,4 @@
-/*package com.example.clientsservice.secure;
+package com.example.clientsservice.secure;
 
 import com.example.clientsservice.models.User;
 import com.example.clientsservice.repositiries.UserRepository;
@@ -17,9 +17,9 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 //@Component
-public class AuthProvider implements AuthenticationProvider {
+public class AuthProvider /*implements AuthenticationProvider*/ {
 
-    @Autowired
+    /*@Autowired
     private UserRepository userRepository;
 
     @Autowired
@@ -47,5 +47,5 @@ public class AuthProvider implements AuthenticationProvider {
     @Override
     public boolean supports(Class<?> authentication) {
         return true;
-    }
-}*/
+    }*/
+}
