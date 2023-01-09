@@ -1,4 +1,4 @@
-package com.example.clientsservice.secure;
+/*package com.example.clientsservice.secure;
 
 import com.example.clientsservice.models.User;
 import com.example.clientsservice.repositiries.UserRepository;
@@ -13,9 +13,10 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Component;
 
 import java.util.Arrays;
+import java.util.List;
 import java.util.stream.Collectors;
 
-@Component
+//@Component
 public class AuthProvider implements AuthenticationProvider {
 
     @Autowired
@@ -39,15 +40,12 @@ public class AuthProvider implements AuthenticationProvider {
         return new UsernamePasswordAuthenticationToken(
                 user,
                 authentication.getCredentials(),
-
-                Arrays.stream(User.Role.values())
-                        .map(role -> new SimpleGrantedAuthority(role.name()))
-                        .collect(Collectors.toSet())
+                List.of(new SimpleGrantedAuthority(user.getRole().name()))
         );
     }
 
     @Override
     public boolean supports(Class<?> authentication) {
-        return false;
+        return true;
     }
-}
+}*/
