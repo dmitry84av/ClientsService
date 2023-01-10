@@ -39,13 +39,13 @@ public class ClientsServiceApplication {
 		this.clientRepository = clientRepository;
 	}
 
-	@EventListener(ApplicationReadyEvent.class)
+	//@EventListener(ApplicationReadyEvent.class)
 	public void applicationReady(){
-		/*Client a = new Client(0,"a","a","a",MALE,"a@test.com",
+		Client a = new Client(0,"a","a","a",MALE,"a@test.com",
 				null,null,null);
 		Client b = new Client(0,"b","b","b",MALE,"b@test.com",
 				null,null,null);
-		clientRepository.saveAll(List.of(a, b));*/
+		clientRepository.saveAll(List.of(a, b));
 		//users
 		User admin = new User(0,"a","a",User.Role.ADMIN, User.Status.ACTIVE);
 		User user = new User(0,"u","u",User.Role.USER, User.Status.ACTIVE);
