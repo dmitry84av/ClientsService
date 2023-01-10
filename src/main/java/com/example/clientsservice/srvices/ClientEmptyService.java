@@ -1,12 +1,8 @@
 package com.example.clientsservice.srvices;
 
-import com.example.clientsservice.models.Account;
-import com.example.clientsservice.models.Address;
 import com.example.clientsservice.models.Client;
-import com.example.clientsservice.srvices.data.AccountService;
+import com.example.clientsservice.srvices.data.ClientService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.mail.SimpleMailMessage;
-import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.scheduling.annotation.AsyncResult;
 import org.springframework.scheduling.annotation.Scheduled;
@@ -16,28 +12,28 @@ import java.util.List;
 import java.util.concurrent.Future;
 
 @Service
-public class AccountEmptyService {
+public class ClientEmptyService {
     @Autowired
-    private AccountService accountService;
+    private ClientService clientService;
 
     @Autowired
     private MailingService mailingService;
 
     @Async
-    public Future<List<Account>> checkAccounts(){
-        List<Account> accountList = accountService.findAllByAmountEquals(0);
-        return new AsyncResult<>(accountList);
+    public Future<List<Client>> checkClients(){
+        List<Client> clientsList = clientService.findAllByAmountEquals(0);
+        return new AsyncResult<>(clientsList);
     }
     @Scheduled(cron = "*/1 * * * *", zone = "Europe/Kiev")//ДЗ Проверка аккаунтов и рассылка сообщений должна происходить раз в минуту.
     @Async
     public void start(){
         try {
-            Future<List<Account>> future = checkAccounts();
+            Future<List<Client>> future = checkClients();
             while (!future.isDone())
                 Thread.sleep(10);
-            List<Account> accountList = future.get();
-            for (Account account : accountList){
-                for (Client client : account.getClients()){
+            List<Client> clientsList = future.get();
+            for (Client client : clientsList){
+                for (Client ignored : client.getClients()){
                     mailingService.sendEmail(client.getEmail(), client.getSurname());
                 }
             }

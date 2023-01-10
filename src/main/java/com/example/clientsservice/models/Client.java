@@ -21,6 +21,10 @@ public class Client {
         return false;
     }
 
+    public Client[] getClients() {
+        return new Client[0];
+    }
+
     public enum Gender{
         NONE, MALE,FEMALE
     }

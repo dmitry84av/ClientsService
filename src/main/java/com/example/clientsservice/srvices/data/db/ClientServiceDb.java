@@ -41,4 +41,9 @@ public class ClientServiceDb implements ClientService {
     public List<Client> saveAll(List<Client> clients) {
         return clientRepository.saveAll(clients);
     }
+
+    @Override
+    public List<Client> findAllByAmountEquals(int amount) {
+        return clientRepository.findAllByAmountEquals(amount);
+    }
 }

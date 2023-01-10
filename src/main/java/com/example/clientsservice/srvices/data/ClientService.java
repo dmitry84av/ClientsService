@@ -17,4 +17,6 @@ public interface ClientService {
     Client findById(Integer id);
 
     List<Client> saveAll(List<Client> clients);
+
+    List<Client> findAllByAmountEquals(int amount);
 }
