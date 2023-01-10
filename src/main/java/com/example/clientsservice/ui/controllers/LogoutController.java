@@ -15,6 +15,7 @@ import java.security.Security;
 public class LogoutController {
     @GetMapping("logout")
     public String logout(HttpServletRequest request, HttpServletResponse response) {
+        System.out.println(SecurityContextHolder.getContext().getAuthentication().isAuthenticated());
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         if(authentication != null)
             new SecurityContextLogoutHandler().logout(request, response,authentication);

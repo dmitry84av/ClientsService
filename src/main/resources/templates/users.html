@@ -20,19 +20,17 @@
         <input type="submit" value="SAVE">
     </form>
 </div>
-<div class="table">
+<div class="table" id="usersOut">
     <table>
         <tr>
             <th>ID</th>
             <th>Username</th>
-            <th>Password</th>
             <th>Role</th>
             <th>Status</th>
         </tr>
             <tr th:each="user:${users}">
                 <td th:utext="${user.id}"></td>
                 <td th:utext="${user.username}"></td>
-                <td th:utext="${user.password}"></td>
                 <td th:utext="${user.role}"></td>
                 <td th:utext="${user.status}"></td>
                 <td>

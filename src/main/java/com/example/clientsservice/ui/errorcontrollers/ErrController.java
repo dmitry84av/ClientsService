@@ -1,4 +1,4 @@
-package com.example.clientsservice.ui.errorcontrollers;
+/*package com.example.clientsservice.ui.errorcontrollers;
 
 import org.springframework.boot.web.servlet.error.ErrorController;
 import org.springframework.http.HttpStatus;
@@ -24,7 +24,7 @@ public class ErrController implements ErrorController {
         HttpStatus status = HttpStatus.valueOf(statusAttr);
         /*if(status == HttpStatus.FORBIDDEN.value())
             return new ModelAndView("redirect:");*/
-        return new ModelAndView("error", new ModelMap("request", Map.of(
+        /*return new ModelAndView("error", new ModelMap("request", Map.of(
                 "timestamp", LocalDateTime.now(),
                 "error", request.getAttribute(RequestDispatcher.ERROR_STATUS_CODE),
                 "message", request.getAttribute(RequestDispatcher.ERROR_STATUS_CODE),
@@ -35,3 +35,4 @@ public class ErrController implements ErrorController {
         )));
     }
 }
+*/

@@ -55,7 +55,7 @@ public class SecurityConfig {
                 .passwordEncoder(passwordEncoder)
                 .and().build();
     }
-    @Bean
+    //@Bean
     public WebSecurityCustomizer webSecurityCustomizer() {
         return customizer ->
                 customizer.debug(true)
@@ -82,10 +82,8 @@ public class SecurityConfig {
                         "/",
                         "/clients"
                 )
-                .hasAnyAuthority(
-                        USER.name(),
-                        ADMIN.name()
-                )
+
+                 .authenticated()
                 .antMatchers(
                         "/users"
                 )
@@ -97,12 +95,11 @@ public class SecurityConfig {
                  .loginPage(
                          "/authorization"
                  )
-                 .permitAll()
                  .and()
                  .logout()
-                 .logoutUrl(
+                 /*.logoutUrl(
                          "j_spring_security_logout"
-                 )
+                 )*/
                  .logoutSuccessUrl(
                          "/authorization"
                  )
